@@ -1,0 +1,50 @@
+{
+    "manifest_version": 2,
+    "name": "easy_english",
+    "version": "1.0.0",
+    "description": "一款强大的划词翻译Chrome扩展",
+    "icons":
+    {
+        "16": "img/icon.png",
+        "48": "img/icon.png",
+        "128": "img/icon.png"
+    },
+    "background":
+    {
+        "page": "background.html"
+    },
+    "browser_action": 
+    {
+        "default_icon": "img/icon.png",
+        "default_title": "这是一个示例Chrome插件",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": 
+    [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["js/main.js", "js/api.js"],
+            "css": ["css/easy_english_inner.css"],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions":
+    [
+        "contextMenus",
+        "tabs",
+        "notifications",
+        "webRequest",
+        "webRequestBlocking",
+        "storage",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "web_accessible_resources": ["*", "*/*"],
+    "homepage_url": "https://www.baidu.com",
+    "options_ui":
+    {
+        "page": "options.html",
+        "chrome_style": true
+    },
+    "omnibox": { "keyword" : "翻译" }
+}
